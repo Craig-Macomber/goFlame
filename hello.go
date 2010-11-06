@@ -12,7 +12,7 @@ import (
     "/floatTable"
     //"/lazyImage"
     "math"
-    "unsafe"
+    //"unsafe"
      )
 
 func fit(trans []*affine.Affine) (x1, y1, x2, y2 float64){
@@ -140,11 +140,16 @@ func main() {
                     //}
                     //same:=ft.Data[src+uint(tn)]
                     for k := uint(0) ; k<ft.CellLength ; k++{
-                        b:=k==utn
-                        ptr:=unsafe.Pointer(&b)
-                        v:=*ptr
-                        s:=float32(.5+float32(int(v))*3.5)
+//                         b:=k==utn
+//                         ptr:=unsafe.Pointer(&b)
+//                         v:=*ptr
+//                         s:=float32(.5+float32(int(v))*3.5)
+                        s:=float32(.5)
+                        if k==utn {
+                            s=4.0
+                        }
                         ft2.Data[out+k]+=ft.Data[src+k]*s
+
                     }
                 }
             }
