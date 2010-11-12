@@ -25,3 +25,7 @@ func (t *FloatTable) Fill(value float32) {
 		t.Data[i] = value
 	}
 }
+
+func (t *FloatTable) Rez() (int, int) {
+	return t.width, len(t.Data) / t.CellLength / t.width
+}
